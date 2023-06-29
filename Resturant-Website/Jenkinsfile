@@ -1,5 +1,5 @@
 pipeline {
-    agents any
+    agent any
     environment {
         DOCKERHUB_USERNAME = "prvinsm21"
     }
