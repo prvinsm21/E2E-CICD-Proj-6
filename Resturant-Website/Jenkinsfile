@@ -32,11 +32,7 @@ pipeline {
         stage('OWASP Dependency Check') {
             steps {
                dependencyCheck additionalArguments: '', odcInstallation: 'DP'
-                    dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
-                    retire-js-dependency_scanning:
-                         after_script:
-                            - retire --verbose
-
+               dependencyCheckPublisher pattern: '--format HTML --format XML '
             }
         }
         stage ('Static Code analysis') {
