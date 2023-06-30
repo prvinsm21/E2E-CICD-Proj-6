@@ -31,8 +31,8 @@ pipeline {
         }
         stage('OWASP Dependency Check') {
             steps {
-               dependencyCheck additionalArguments: '', odcInstallation: 'DP'
-               dependencyCheckPublisher pattern: '--format HTML --format XML '
+               dependencyCheck additionalArguments: '--scan target/', odcInstallation: 'DP'
+               dependencyCheckPublisher pattern: '--format HTML --format XML'
             }
         }
         stage ('Static Code analysis') {
