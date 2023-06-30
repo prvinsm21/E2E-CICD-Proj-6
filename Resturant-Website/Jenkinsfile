@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKERHUB_USERNAME = "prvinsm21"
-        DOCKERHUB_CREDENTIALS = credentialsId('dockerhub')
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub')
         DOCKER_IMAGE = "prvinsm21/resturant-website:${BUILD_NUMBER}"
         DOCKERFILE_LOCATION = "E2E-CICD-Projects/Resturant-Website/Dockerfile"
 
