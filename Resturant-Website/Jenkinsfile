@@ -39,14 +39,6 @@ pipeline {
                 }
             }
         }
-        stage('OWASP Dependency Check') {
-            steps {
-               dependencyCheck additionalArguments: '--scan Resturant-Website/', odcInstallation: 'DP'
-               dependencyCheckPublisher pattern: '--format HTML --format XML'
-               publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, reportDir: 'Resturant-Website/target/dependency-check-report', reportFiles: 'dependency-check-report.html', reportName: 'Dependency-Check Report'])
-
-            }
-        }
         stage ('Quality Gate Status') {
             steps {
                 script {
@@ -54,5 +46,6 @@ pipeline {
                 }
             }
         }
+        stage ('Build Docker file')
     }
 }
