@@ -42,7 +42,7 @@ pipeline {
         stage('OWASP Dependency Check') {
             steps {
                dependencyCheck additionalArguments: '--scan Resturant-Website/', odcInstallation: 'DP'
-               dependencyCheckPublisher pattern: '--format HTML --format XML'
+               dependencyCheckPublisher pattern: '**/*.jar', failOnError: true
             }
         }
         stage ('Quality Gate Status') {
