@@ -29,6 +29,12 @@ pipeline {
                 sh 'cd Resturant-Website  && mvn clean install'
             }
         }
+        stage('OWASP Dependency Check') {
+            steps {
+               dependencyCheck additionalArguments: '', odcInstallation: 'DP-check'
+                    dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+            }
+        }
         stage ('Static Code analysis') {
             steps {
                 script {
