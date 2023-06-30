@@ -11,29 +11,29 @@ pipeline {
         }
         stage ('Code Compile') {
             steps {
-                sh 'mvn clean compile'
+                sh 'cd E2E-CICD-Projects/Resturant-Website && mvn clean compile'
             }
         }
         stage ('Unit Testing') {
             steps {
-                sh 'mvn test'
+                sh 'cd E2E-CICD-Projects/Resturant-Website && mvn test'
             }
         }
         stage ('Integration Testing') {
             steps {
-                sh 'mvn verify -DskipUnitTests'
+                sh 'cd E2E-CICD-Projects/Resturant-Website  && mvn verify -DskipUnitTests'
             }
         }
         stage ('Build Stage') {
             steps {
-                sh 'mvn clean install'
+                sh 'cd E2E-CICD-Projects/Resturant-Website  && mvn clean install'
             }
         }
         stage ('Static Code analysis') {
             steps {
                 script {
                     withSonarQubeEnv(credentialsId: 'sonar-api') {
-                        sh 'mvn clean package sonar:sonar'
+                        sh 'cd E2E-CICD-Projects/Resturant-Website && mvn clean package sonar:sonar'
                     }
                 }
             }
