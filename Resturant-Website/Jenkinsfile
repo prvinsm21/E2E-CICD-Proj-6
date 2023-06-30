@@ -41,7 +41,7 @@ pipeline {
         }
         stage('OWASP Dependency Check') {
             steps {
-               dependencyCheck additionalArguments: '--scan target/', odcInstallation: 'DP'
+               dependencyCheck additionalArguments: '--scan Resturant-Website/target/', odcInstallation: 'DP'
                dependencyCheckPublisher pattern: '--format HTML --format XML'
             }
         }
