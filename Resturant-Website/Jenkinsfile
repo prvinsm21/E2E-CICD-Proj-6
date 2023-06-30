@@ -32,7 +32,7 @@ pipeline {
         stage('OWASP Dependency Check') {
             steps {
                dependencyCheck additionalArguments: '', odcInstallation: 'DP'
-                    dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+                    dependencyCheckPublisher pattern: 'dependency-check-report.xml'
             }
         }
         stage ('Static Code analysis') {
