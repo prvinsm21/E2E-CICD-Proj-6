@@ -33,6 +33,10 @@ pipeline {
             steps {
                dependencyCheck additionalArguments: '', odcInstallation: 'DP'
                     dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+                    retire-js-dependency_scanning:
+                         after_script:
+                            - retire --verbose
+
             }
         }
         stage ('Static Code analysis') {
