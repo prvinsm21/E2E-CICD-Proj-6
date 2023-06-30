@@ -29,12 +29,7 @@ pipeline {
                 sh 'cd Resturant-Website  && mvn clean install'
             }
         }
-        stage('OWASP Dependency Check') {
-            steps {
-               dependencyCheck additionalArguments: '--scan target/', odcInstallation: 'DP'
-               dependencyCheckPublisher pattern: '--format HTML --format XML'
-            }
-        }
+        
         stage ('Static Code analysis') {
             steps {
                 script {
@@ -42,6 +37,12 @@ pipeline {
                         sh 'cd Resturant-Website && mvn clean package sonar:sonar'
                     }
                 }
+            }
+        }
+        stage('OWASP Dependency Check') {
+            steps {
+               dependencyCheck additionalArguments: '--scan target/', odcInstallation: 'DP'
+               dependencyCheckPublisher pattern: '--format HTML --format XML'
             }
         }
         stage ('Quality Gate Status') {
