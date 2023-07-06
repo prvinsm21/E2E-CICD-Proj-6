@@ -5,7 +5,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app: sentrasite-service
+    app: sentrasite
   ports:
   - name: http
     port: 80
