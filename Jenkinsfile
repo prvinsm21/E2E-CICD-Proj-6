@@ -1,8 +1,8 @@
 pipeline {
     agent any
     environment {
-        DOCKERUSERNAME = "privnsm21"
-        DOCKERCREDENTIALS = credentials('dockerhub')
+        DOCKERHUB_USERNAME = "privnsm21"
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub')
         DOCKERIMAGE_NAME = "prvinsm21/sentra-site:${BUILD_NUMBER}"
     }
 
