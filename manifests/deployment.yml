@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sentrasite
+spec:
+  replica: 3
+  selector:
+    matchLabels:
+      app: sentrasite
+  template:
+    metadata:
+      labels:
+        app: sentrasite
+    spec:
+      containers:
+      - name: sentrasite
+        image: prvinsm21/gaming-site:replaceImageTag
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
