@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: sentrasite
-        image: prvinsm21/gaming-site:replaceImageTag
+        image: prvinsm21/sentra-site:replaceImageTag
         resources:
           limits:
             memory: "128Mi"
